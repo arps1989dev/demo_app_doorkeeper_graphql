@@ -1,0 +1,2 @@
+class ScreenMastersController < ApplicationController
+end
