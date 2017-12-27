@@ -1,4 +1,5 @@
 class GraphqlController < ApplicationController
+  before_action :doorkeeper_authorize!
   def execute
     variables = ensure_hash(params[:variables])
     query = params[:query]

@@ -9,6 +9,8 @@ Rails.application.routes.draw do
     skip_controllers :applications, :authorized_applications
   end
 
-  mount GraphiQL::Rails::Engine, at: 'gi', graphql_path: '/category' if Rails.env.development?
+  mount GraphiQL::Rails::Engine, at: '/gi', graphql_path: '/graphql' if Rails.env.development?
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
+  # post 'categories/create_category', to: 'categories#create_category'
 end

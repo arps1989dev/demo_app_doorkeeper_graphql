@@ -1,11 +1,9 @@
 Types::MutationType = GraphQL::ObjectType.define do
   name "Mutation"
 
-  # TODO: Remove me
-  field :testField, types.String do
-    description "An example field added by the generator"
-    resolve ->(obj, args, ctx) {
-      "Hello World!"
-    }
-  end
+  # create update and delete category
+  field :create_category, function: Mutations::Category::CreateCategory.new
+  field :update_category, function: Mutations::Category::UpdateCategory.new
+  field :delete_category, function: Mutations::Category::DeleteCategory.new
+
 end

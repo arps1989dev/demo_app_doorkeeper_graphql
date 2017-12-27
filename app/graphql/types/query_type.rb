@@ -10,4 +10,12 @@ Types::QueryType = GraphQL::ObjectType.define do
       "Hello World!"
     }
   end
+
+  field :screen_master, Types::ScreenMasterType do
+    argument :id, types.ID
+    argument :screen_name, types.String
+    resolve -> (obj, args, ctx) {
+      ScreenMaster.where(id: args[:id]).first
+    }
+  end
 end
