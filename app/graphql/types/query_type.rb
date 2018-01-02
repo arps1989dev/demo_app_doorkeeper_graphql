@@ -1,21 +1,31 @@
 Types::QueryType = GraphQL::ObjectType.define do
   name "Query"
-  # Add root-level fields here.
-  # They will be entry points for queries on your schema.
-
-  # TODO: remove me
-  field :testField, types.String do
-    description "An example field added by the generator"
-    resolve ->(obj, args, ctx) {
-      "Hello World!"
-    }
-  end
 
   field :screen_master, Types::ScreenMasterType do
     argument :id, types.ID
-    argument :screen_name, types.String
+    argument :user_id,types.Int
+    description "One Screen Master"
     resolve -> (obj, args, ctx) {
       ScreenMaster.where(id: args[:id]).first
     }
   end
+
+  field :category, Types::CategoryType do
+    argument :id, types.ID
+    description "One Category"
+    resolve -> (obj, args, ctx) { Category.where(id: args[:id]).first }
+  end
+
+
+
+  field :all_screen_masters, types[Types::ScreenMasterType] do
+    description "All the screen  masters in the database"
+    resolve ->(_,_,_) {ScreenMaster.all}
+  end
+
+  field :all_categories, types[Types::CategoryType] do
+    description "All the categories in the database"
+    resolve ->(_,_,_) {Category.all}
+  end
+
 end
