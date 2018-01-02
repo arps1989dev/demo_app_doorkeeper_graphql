@@ -13,6 +13,6 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   # post 'categories/create_category', to: 'categories#create_category'
-  # post 'screen_masters/create_screen', to: 'categories#create_category'
+  # post 'screen_masters/create_screen_master', to: 'screen_masters#create_screen_master'
 
 end
