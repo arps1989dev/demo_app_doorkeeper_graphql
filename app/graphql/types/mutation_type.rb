@@ -9,4 +9,5 @@ Types::MutationType = GraphQL::ObjectType.define do
   # create update and delete screen master
   field :createScreenMaster, function: Mutations::CreateScreenMaster.new
   field :updateScreenMaster, function: Mutations::UpdateScreenMaster.new
+  field :deleteScreenMaster, function: Mutations::DeleteScreenMaster.new
 end

@@ -1,7 +1,9 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  role_name: MyString
+  role: one
+  screen_master: one
 
 two:
-  role_name: MyString
+  role: two
+  screen_master: two

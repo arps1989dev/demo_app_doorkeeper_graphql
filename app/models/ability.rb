@@ -5,8 +5,18 @@ class Ability
     # Define abilities for the passed in user here. For example:
     #
       user ||= User.new # guest user (not logged in)
-      if user.admin?
+      if user.super_admin?
         can :manage, :all
+      if user.producer?
+        can :manage, :all
+      if user.manager?
+        can :manage, :all
+      if user.supplier?
+        can :read, :all
+      if user.seller?
+        can :read, :all
+      if user.buyer?
+        can :read, :all
       else
         can :read, :all
       end
