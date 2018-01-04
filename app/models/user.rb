@@ -12,13 +12,13 @@ class User < ApplicationRecord
   has_many :roles, :through => :user_roles
 
   # callbacks
-  after_create :set_default_role
+  # after_create :set_default_role
 
 
   # methods
-  private
-  def set_default_role
-  	self.roles << Role.find_by_role_name("super_admin")
-    self.save
-  end
+  # private
+  # def set_default_role
+  # 	self.roles << Role.find_by_role_name("super_admin")
+  #   self.save
+  # end
 end
