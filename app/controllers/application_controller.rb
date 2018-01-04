@@ -1,9 +1,14 @@
 class ApplicationController < ActionController::API
   before_action :doorkeeper_authorize!
   before_action :configure_permitted_parameters, if: :devise_controller?
-
+  load_and_authorize_resource :screen_master, parent: false
+  
   def doorkeeper_unauthorized_render_options(error: nil)
     { json: { error: "You are not authorized." } }
+  end
+
+   rescue_from CanCan::AccessDenied do |exception|
+    redirect_to "#{Rails.root}",:alert => exception.message
   end
 
   protected

@@ -51,3 +51,4 @@ gem 'doorkeeper-jwt'
 
 gem 'graphql'
 gem 'graphiql-rails'
+gem 'graphql-guard'

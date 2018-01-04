@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180103093807) do
+ActiveRecord::Schema.define(version: 20180104072837) do
 
   create_table "categories", force: :cascade do |t|
     t.string "name"
@@ -71,6 +71,7 @@ ActiveRecord::Schema.define(version: 20180103093807) do
     t.integer "screen_master_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "visibility", default: false
     t.index ["role_id"], name: "index_role_screens_on_role_id"
     t.index ["screen_master_id"], name: "index_role_screens_on_screen_master_id"
   end
@@ -86,8 +87,6 @@ ActiveRecord::Schema.define(version: 20180103093807) do
     t.integer "category_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "user_id"
-    t.index ["user_id"], name: "index_screen_masters_on_user_id"
   end
 
   create_table "user_roles", force: :cascade do |t|

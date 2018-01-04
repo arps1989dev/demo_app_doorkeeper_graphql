@@ -9,6 +9,9 @@ end
 
 Types::ScreenMasterType = GraphQL::ObjectType.define do
   name "ScreenMasterType"
+
+  guard -> (obj, args, ctx) { ctx[:current_ability].can?(:read, obj) }  
+
   field :id,types.ID
   field :screen_name,types.String
   field :user_id,types.Int
@@ -18,4 +21,5 @@ Types::ScreenMasterType = GraphQL::ObjectType.define do
       obj.errors.to_a
     }
   end
+
 end 
