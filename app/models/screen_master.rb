@@ -1,4 +1,5 @@
 class ScreenMaster < ApplicationRecord
+  resourcify
   # relationship
   has_many :categories
 

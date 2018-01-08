@@ -9,8 +9,8 @@ class GraphqlController < ApplicationController
     context = {
       # Query context goes here, for example:
       # current_user: current_user,
-      current_ability: Ability.new(current_resource_owner), 
-      current_resource_owner: current_resource_owner
+      current_resource_owner: current_resource_owner,
+      current_ability: Ability.new(current_resource_owner)
     }
     
     result = DemoAppDoorkeeperGraphqlSchema.execute(query, variables: variables, context: context, operation_name: operation_name)
