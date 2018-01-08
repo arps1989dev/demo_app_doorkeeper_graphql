@@ -7,12 +7,12 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 roles = Role.create!([
-  { role_name: "super_admin"}, 
-  { role_name: "producer"},
-  { role_name: "manager"}, 
-  { role_name: "supplier"}, 
-  { role_name: "seller"}, 
-  { role_name: "buyer"}
+  { name: "super_admin"}, 
+  { name: "producer"},
+  { name: "manager"}, 
+  { name: "supplier"}, 
+  { name: "seller"}, 
+  { name: "buyer"}
 ])
 
 users = User.create!([
@@ -48,9 +48,9 @@ users = User.create!([
   }
 ])
 
-User.find_by(id: 1).roles << Role.find_by_role_name("super_admin")
-User.find_by(id: 2).roles << Role.find_by_role_name("producer")
-User.find_by(id: 3).roles << Role.find_by_role_name("manager")
-User.find_by(id: 4).roles << Role.find_by_role_name("supplier")
-User.find_by(id: 5).roles << Role.find_by_role_name("seller")
-User.find_by(id: 6).roles << Role.find_by_role_name("buyer")
+User.find_by(id: 1).add_role "super_admin"
+User.find_by(id: 2).add_role "producer"
+User.find_by(id: 3).add_role "manager"
+User.find_by(id: 4).add_role "supplier"
+User.find_by(id: 5).add_role "seller"
+User.find_by(id: 6).add_role "buyer"

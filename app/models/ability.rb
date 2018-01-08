@@ -5,22 +5,22 @@ class Ability
     # Define abilities for the passed in user here. For example:
     #
       user ||= User.new # guest user (not logged in)
-      if user.roles == "super_admin"
+      if user.has_role? :super_admin
         can :manage, ScreenMaster
       end
-      if user.roles == "producer"
+      if user.has_role? :producer
         can :read, ScreenMaster
       end
-      if user.roles == "manager"
+      if user.has_role? :manager
         can :update, ScreenMaster
       end
       if user.roles  == "supplier"
         can :read, ScreenMaster
       end
-      if user.roles == "seller"
+      if user.has_role? :seller
         can :read, ScreenMaster
       end
-      if user.roles == "buyer"
+      if user.has_role? :buyer
         can :read, ScreenMaster
       else
         can :read, ScreenMaster

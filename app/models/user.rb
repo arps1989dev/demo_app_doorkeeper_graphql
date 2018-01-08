@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  rolify
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
 
@@ -9,8 +10,8 @@ class User < ApplicationRecord
   # has_many :role_screens
   # has_many :screen_masters, through: :role_screens
 
-  has_many :user_roles
-  has_many :roles, :through => :user_roles
+  # has_many :user_roles
+  # has_many :roles, :through => :user_roles
 
   # callbacks
   # after_create :set_default_role
