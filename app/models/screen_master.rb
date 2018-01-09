@@ -5,6 +5,7 @@ class ScreenMaster < ApplicationRecord
 
   has_many :role_screens
   has_many :roles, :through => :role_screens
+  validates :screen_name, presence: true
 
   # callbacks
   # after_create :set_visibility

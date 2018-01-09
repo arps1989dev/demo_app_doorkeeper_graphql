@@ -1,6 +1,6 @@
 class GraphqlController < ApplicationController
   before_action :doorkeeper_authorize!
-  # load_and_authorize_resources
+  # load_and_authorize_resource
 
   def execute
     variables = ensure_hash(params[:variables])
@@ -10,9 +10,9 @@ class GraphqlController < ApplicationController
       # Query context goes here, for example:
       # current_user: current_user,
       current_resource_owner: current_resource_owner,
-      current_ability: Ability.new(current_resource_owner)
+      current_ability: current_ability
     }
-    
+    binding.pry
     result = DemoAppDoorkeeperGraphqlSchema.execute(query, variables: variables, context: context, operation_name: operation_name)
     render json: result
   end

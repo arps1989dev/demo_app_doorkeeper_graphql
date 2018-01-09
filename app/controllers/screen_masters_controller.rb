@@ -1,3 +1,2 @@
 class ScreenMastersController < ApplicationController
-	load_and_authorize_resources
 end

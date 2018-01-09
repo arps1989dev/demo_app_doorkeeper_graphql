@@ -9,22 +9,23 @@ class Ability
         can :manage, ScreenMaster
       end
       if user.has_role? :producer
-    binding.pry
-        can :read, ScreenMaster, user_id: user.id
+        binding.pry
+        can :create, ScreenMaster, user_id: user.id
       end
       if user.has_role? :manager
-        can :update, ScreenMaster, user_id: user.id
+        binding.pry
+        can :update, ScreenMaster#, user_id: user.id
       end
       if user.has_role? :supplier
-        can :read, ScreenMaster, user_id: user.id
+        can :read, ScreenMaster#, user_id: user.id
       end
       if user.has_role? :seller
-        can :read, ScreenMaster, user_id: user.id
+        can :read, ScreenMaster#, user_id: user.id
       end
       if user.has_role? :buyer
-        can :read, ScreenMaster, user_id: user.id
-      else
-        can :read, :all
+        can :read, ScreenMaster#, user_id: user.id
+      # else
+        # can :read, :all
       end
     #
     # The first argument to `can` is the action you are giving the user
