@@ -3,7 +3,7 @@ class Mutations::DeleteScreenMaster < GraphQL::Function
 
   type types.Boolean
   
-  def call(obj,args,cts)
+  def call(obj,args,ctx)
     screen_master = ScreenMaster.find(args[:id])
     !!screen_master.destroy
   end

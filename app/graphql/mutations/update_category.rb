@@ -5,7 +5,7 @@ class Mutations::UpdateCategory < GraphQL::Function
 
   type Types::CategoryType
   
-  def call(obj,args,cts)
+  def call(obj,args,ctx)
     category = Category.find(args[:id])
     category.try :update,args[:category].to_h
     category

@@ -14,16 +14,16 @@ class Ability
       end
       if user.has_role? :manager
         binding.pry
-        can :update, ScreenMaster#, user_id: user.id
+        can :update, ScreenMaster, user_id: user.id
       end
       if user.has_role? :supplier
-        can :read, ScreenMaster#, user_id: user.id
+        can :read, ScreenMaster, user_id: user.id
       end
       if user.has_role? :seller
-        can :read, ScreenMaster#, user_id: user.id
+        can :read, ScreenMaster, user_id: user.id
       end
       if user.has_role? :buyer
-        can :read, ScreenMaster#, user_id: user.id
+        can :read, ScreenMaster, user_id: user.id
       # else
         # can :read, :all
       end

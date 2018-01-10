@@ -3,7 +3,7 @@ Types::QueryType = GraphQL::ObjectType.define do
 
   field :screen_master, Types::ScreenMasterType do
     argument :id, types.ID
-    argument :user_id,types.Int
+    # argument :user_id,types.Int
     description "One Screen Master"
     resolve -> (obj, args, ctx) {
       ScreenMaster.where(id: args[:id]).first

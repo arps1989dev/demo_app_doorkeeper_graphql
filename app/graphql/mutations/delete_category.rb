@@ -3,7 +3,7 @@ class Mutations::DeleteCategory < GraphQL::Function
 
   type types.Boolean
   
-  def call(obj,args,cts)
+  def call(obj,args,ctx)
     category = Category.find(args[:id])
     !!category.destroy
   end

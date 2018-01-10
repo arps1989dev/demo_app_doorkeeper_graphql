@@ -5,7 +5,7 @@ class Mutations::UpdateScreenMaster < GraphQL::Function
 
   type Types::ScreenMasterType
   
-  def call(obj,args,cts)
+  def call(obj,args,ctx)
     screen_master = ScreenMaster.find(args[:id])
     screen_master.try :update, args[:screen_master].to_h
     screen_master
