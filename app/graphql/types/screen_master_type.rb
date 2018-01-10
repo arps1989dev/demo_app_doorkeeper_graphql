@@ -8,11 +8,10 @@ Types::ScreenMasterInputType = GraphQL::InputObjectType.define do
 end
 
 Types::ScreenMasterType = GraphQL::ObjectType.define do
-  # binding.pry
   name "ScreenMasterType"
   guard -> (obj, args, ctx) { 
     binding.pry
-    ctx[:current_ability].can?(:create, obj) }  
+    ctx[:current_ability].can?(:manage, obj) }  
 
   field :id,types.ID
   field :screen_name,types.String

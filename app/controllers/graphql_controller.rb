@@ -12,7 +12,6 @@ class GraphqlController < ApplicationController
       current_resource_owner: current_resource_owner,
       current_ability: current_ability
     }
-    binding.pry
     result = DemoAppDoorkeeperGraphqlSchema.execute(query, variables: variables, context: context, operation_name: operation_name)
     render json: result
   end

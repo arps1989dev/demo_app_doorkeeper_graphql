@@ -9,11 +9,12 @@ class Ability
         can :manage, ScreenMaster
       end
       if user.has_role? :producer
-        binding.pry
         can :create, ScreenMaster
-        can :read, ScreenMaster
         can :create, RolesScreenMaster
+        can :update, ScreenMaster
+        can :read, ScreenMaster
         can :read, RolesScreenMaster
+        can :destroy, ScreenMaster
       end
       if user.has_role? :manager
         binding.pry
