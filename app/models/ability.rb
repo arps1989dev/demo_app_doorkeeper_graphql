@@ -10,20 +10,23 @@ class Ability
       end
       if user.has_role? :producer
         binding.pry
-        can :create, ScreenMaster, user_id: user.id
+        can :create, ScreenMaster
+        can :read, ScreenMaster
+        can :create, RolesScreenMaster
+        can :read, RolesScreenMaster
       end
       if user.has_role? :manager
         binding.pry
-        can :update, ScreenMaster, user_id: user.id
+        can :update, ScreenMaster
       end
       if user.has_role? :supplier
-        can :read, ScreenMaster, user_id: user.id
+        can :read, ScreenMaster
       end
       if user.has_role? :seller
-        can :read, ScreenMaster, user_id: user.id
+        can :read, ScreenMaster
       end
       if user.has_role? :buyer
-        can :read, ScreenMaster, user_id: user.id
+        can :read, ScreenMaster
       # else
         # can :read, :all
       end

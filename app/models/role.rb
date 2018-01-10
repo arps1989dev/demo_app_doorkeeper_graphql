@@ -1,6 +1,6 @@
 class Role < ApplicationRecord
-has_many :role_screens
-has_many :screen_masters, :through => :role_screens
+has_many :roles_screen_masters, dependent: :destroy
+has_many :screen_masters, :through => :roles_screen_masters
 has_and_belongs_to_many :users, :join_table => :users_roles
 
 

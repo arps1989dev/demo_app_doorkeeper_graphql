@@ -1,0 +1,4 @@
+class RolesScreenMaster < ApplicationRecord
+  belongs_to :role
+  belongs_to :screen_master
+end

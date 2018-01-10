@@ -5,9 +5,9 @@ class Mutations::CreateScreenMaster < GraphQL::Function
   def call(obj, args, ctx)
     binding.pry
     model = ScreenMaster.new(args[:screen_master].to_h)
-    if ctx[:current_ability].can?(:create, model).first
+    if (ctx[:current_ability].can?(:create, model))
       persist_model = ScreenMaster.create args[:screen_master].to_h
-      persist_model.roles << current_resource_owner.roles.first
+      persist_model.roles << ctx[:current_resource_owner].roles.first
     else
       model
     end

@@ -1,10 +1,10 @@
 class ScreenMaster < ApplicationRecord
-  resourcify
+  # resourcify
   # relationship
+  has_many :roles_screen_masters, dependent: :destroy
+  has_many :roles, :through => :roles_screen_masters
   has_many :categories
 
-  has_many :role_screens
-  has_many :roles, :through => :role_screens
   validates :screen_name, presence: true
 
   # callbacks

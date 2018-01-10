@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180104072837) do
+ActiveRecord::Schema.define(version: 20180110071919) do
 
   create_table "categories", force: :cascade do |t|
     t.string "name"
@@ -66,16 +66,6 @@ ActiveRecord::Schema.define(version: 20180104072837) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "role_screens", force: :cascade do |t|
-    t.integer "role_id"
-    t.integer "screen_master_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.boolean "visibility", default: false
-    t.index ["role_id"], name: "index_role_screens_on_role_id"
-    t.index ["screen_master_id"], name: "index_role_screens_on_screen_master_id"
-  end
-
   create_table "roles", force: :cascade do |t|
     t.string "name"
     t.string "resource_type"
@@ -85,6 +75,16 @@ ActiveRecord::Schema.define(version: 20180104072837) do
     t.index ["name", "resource_type", "resource_id"], name: "index_roles_on_name_and_resource_type_and_resource_id"
     t.index ["name"], name: "index_roles_on_name"
     t.index ["resource_type", "resource_id"], name: "index_roles_on_resource_type_and_resource_id"
+  end
+
+  create_table "roles_screen_masters", force: :cascade do |t|
+    t.integer "role_id"
+    t.integer "screen_master_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.boolean "visibility", default: false
+    t.index ["role_id"], name: "index_roles_screen_masters_on_role_id"
+    t.index ["screen_master_id"], name: "index_roles_screen_masters_on_screen_master_id"
   end
 
   create_table "screen_masters", force: :cascade do |t|
